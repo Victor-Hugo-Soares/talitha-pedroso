@@ -1,0 +1,123 @@
+/* ══════════════════════════════════════════
+   KEYFRAMES GLOBAIS — Talitha Pedroso
+   ══════════════════════════════════════════ */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1);    opacity: 1; }
+  50%       { transform: scale(1.07); opacity: 0.82; }
+}
+
+@keyframes pulseGold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 146, 58, 0.5); }
+  60%       { box-shadow: 0 0 0 14px rgba(201, 146, 58, 0); }
+}
+
+@keyframes ripple {
+  0%   { transform: scale(1);   opacity: 0.6; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33%       { transform: translateY(-8px) rotate(1deg); }
+  66%       { transform: translateY(4px) rotate(-1deg); }
+}
+
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.8; }
+  50%       { transform: translateY(9px); opacity: 1; }
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1) translate(0, 0); }
+  to   { transform: scale(1.1) translate(-1.5%, -1.5%); }
+}
+
+@keyframes curtainSlide {
+  from { transform: scaleX(1); transform-origin: left; }
+  to   { transform: scaleX(0); transform-origin: left; }
+}
+
+@keyframes starPop {
+  0%   { transform: scale(0) rotate(-35deg); opacity: 0; }
+  70%  { transform: scale(1.25) rotate(8deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes gradientShift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes glimmer {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 1; }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 400; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes splashFadeOut {
+  0%   { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { opacity: 0; pointer-events: none; }
+}
+
+@keyframes monogramIn {
+  0%   { opacity: 0; transform: scale(0.6) rotate(-8deg); }
+  60%  { opacity: 1; transform: scale(1.05) rotate(1deg); }
+  100% { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+/* ── Classes utilitárias ────────────────── */
+.anim-fadeIn     { animation: fadeIn     0.6s ease both; }
+.anim-fadeInUp   { animation: fadeInUp   0.7s ease both; }
+.anim-fadeInLeft { animation: fadeInLeft 0.7s ease both; }
+.anim-scaleIn    { animation: scaleIn    0.5s ease both; }
+.anim-float      { animation: float      3s ease-in-out infinite; }
+.anim-floatSlow  { animation: floatSlow  5s ease-in-out infinite; }
+.anim-pulse      { animation: pulse      2.2s ease-in-out infinite; }
+.anim-shimmer    { animation: shimmer    3s linear infinite; }

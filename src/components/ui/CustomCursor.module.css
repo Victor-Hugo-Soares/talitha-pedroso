@@ -1,0 +1,26 @@
+.dot {
+  position:       fixed;
+  top:            0;
+  left:           0;
+  width:          7px;
+  height:         7px;
+  border-radius:  50%;
+  background:     var(--color-gold);
+  pointer-events: none;
+  z-index:        var(--z-cursor);
+  mix-blend-mode: normal;
+  will-change:    transform;
+}
+
+.ring {
+  position:       fixed;
+  top:            0;
+  left:           0;
+  width:          30px;
+  height:         30px;
+  border-radius:  50%;
+  border:         1.5px solid rgba(201, 146, 58, 0.4);
+  pointer-events: none;
+  z-index:        var(--z-cursor);
+  will-change:    transform;
+}

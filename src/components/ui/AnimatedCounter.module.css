@@ -1,0 +1,20 @@
+.counter {
+  display:     inline-flex;
+  align-items: baseline;
+  gap:         2px;
+  font-family: var(--font-serif);
+  color:       var(--color-gold);
+}
+
+.number {
+  font-size:   inherit;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.suffix {
+  font-size:      0.6em;
+  font-weight:    600;
+  letter-spacing: 0.05em;
+  color:          var(--color-gold-light);
+}

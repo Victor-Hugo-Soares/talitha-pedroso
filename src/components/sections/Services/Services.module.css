@@ -1,0 +1,341 @@
+.section {
+  padding:    var(--space-xl) 0;
+  background: var(--color-white);
+  position:   relative;
+  overflow:   hidden;
+}
+
+.bgAccent {
+  position:   absolute;
+  top:        -200px;
+  right:      -200px;
+  width:      600px;
+  height:     600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(107,30,58,0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1280px;
+  margin:    0 auto;
+  padding:   0 var(--space-lg);
+}
+
+/* ── Header ──────────────────────────────── */
+.header {
+  text-align:    center;
+  max-width:     640px;
+  margin:        0 auto var(--space-lg);
+}
+
+.title {
+  font-family:   var(--font-serif);
+  font-size:     clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight:   700;
+  color:         var(--color-dark);
+  line-height:   1.2;
+  margin-bottom: var(--space-md);
+}
+
+.titleAccent {
+  color:         var(--color-wine);
+  font-style:    italic;
+}
+
+.desc {
+  font-size:  clamp(0.9rem, 1.3vw, 1rem);
+  line-height: 1.75;
+  color:       var(--color-gray);
+  margin-top:  var(--space-md);
+}
+
+/* ── Grid de cards ───────────────────────── */
+.grid {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   var(--space-md);
+  margin-bottom:         var(--space-lg);
+}
+
+/* ── Card base ───────────────────────────── */
+.card {
+  position:       relative;
+  background:     var(--color-offwhite);
+  border:         1px solid rgba(201, 146, 58, 0.12);
+  border-radius:  var(--radius-lg);
+  padding:        2rem 1.8rem;
+  cursor:         pointer;
+  overflow:       hidden;
+  transition:     border-color var(--transition-base), box-shadow var(--transition-base);
+  display:        flex;
+  flex-direction: column;
+  gap:            0.8rem;
+}
+
+.card:hover {
+  border-color: rgba(201, 146, 58, 0.4);
+  box-shadow:   var(--shadow-gold);
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Aurora effect ao hover */
+.cardAurora {
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 30, 58,  0.0) 0%,
+    rgba(201, 146, 58, 0.0) 50%,
+    rgba(107, 30, 58,  0.0) 100%
+  );
+  background-size: 200% 200%;
+  opacity:    0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+  z-index:    0;
+  animation:  gradientShift 4s ease infinite;
+}
+
+.card:hover .cardAurora {
+  opacity: 1;
+  background: linear-gradient(
+    135deg,
+    rgba(107, 30, 58,  0.06) 0%,
+    rgba(201, 146, 58, 0.08) 50%,
+    rgba(107, 30, 58,  0.04) 100%
+  );
+}
+
+/* ── Tag ─────────────────────────────────── */
+.tag {
+  display:        inline-flex;
+  align-self:     flex-start;
+  font-family:    var(--font-sans);
+  font-size:      0.6rem;
+  font-weight:    800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding:        0.3rem 0.7rem;
+  border-radius:  var(--radius-full);
+  position:       relative;
+  z-index:        1;
+}
+
+.tag_gold {
+  background: rgba(201, 146, 58, 0.15);
+  color:      var(--color-gold-metal);
+  border:     1px solid rgba(201, 146, 58, 0.3);
+}
+
+.tag_wine {
+  background: rgba(107, 30, 58, 0.1);
+  color:      var(--color-wine);
+  border:     1px solid rgba(107, 30, 58, 0.2);
+}
+
+/* ── Ícone ───────────────────────────────── */
+.cardIcon {
+  font-size:  2.4rem;
+  line-height: 1;
+  position:   relative;
+  z-index:    1;
+  width:      fit-content;
+}
+
+/* ── Conteúdo ────────────────────────────── */
+.cardName {
+  font-family:  var(--font-serif);
+  font-size:    clamp(1.1rem, 1.5vw, 1.3rem);
+  font-weight:  600;
+  color:        var(--color-dark);
+  line-height:  1.25;
+  position:     relative;
+  z-index:      1;
+}
+
+.cardDesc {
+  font-size:   0.88rem;
+  line-height: 1.65;
+  color:       var(--color-gray);
+  flex:        1;
+  position:    relative;
+  z-index:     1;
+}
+
+.cardCta {
+  font-family:    var(--font-sans);
+  font-size:      0.72rem;
+  font-weight:    700;
+  letter-spacing: 0.1em;
+  color:          var(--color-gold);
+  text-transform: uppercase;
+  margin-top:     auto;
+  position:       relative;
+  z-index:        1;
+  transition:     letter-spacing var(--transition-fast);
+}
+.card:hover .cardCta { letter-spacing: 0.16em; }
+
+/* ── CTA seção ───────────────────────────── */
+.cta {
+  text-align: center;
+  display:    flex;
+  flex-direction: column;
+  align-items: center;
+  gap:         1rem;
+}
+
+.ctaText {
+  font-family: var(--font-corm);
+  font-style:  italic;
+  font-size:   1.1rem;
+  color:       var(--color-gray);
+}
+
+/* ── Modal ───────────────────────────────── */
+.modalBackdrop {
+  position:        fixed;
+  inset:           0;
+  background:      rgba(10, 2, 8, 0.75);
+  backdrop-filter: blur(8px);
+  z-index:         var(--z-modal);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         var(--space-md);
+}
+
+.modal {
+  background:    var(--color-white);
+  border-radius: var(--radius-lg);
+  padding:       2.5rem;
+  max-width:     520px;
+  width:         100%;
+  position:      relative;
+  max-height:    90vh;
+  overflow-y:    auto;
+  box-shadow:    var(--shadow-dark);
+}
+
+.modalClose {
+  position:    absolute;
+  top:         1.2rem;
+  right:       1.2rem;
+  width:       36px;
+  height:      36px;
+  border-radius: 50%;
+  background:  rgba(0,0,0,0.06);
+  border:      none;
+  cursor:      pointer;
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  color:       var(--color-gray);
+  font-size:   0.9rem;
+  transition:  background var(--transition-fast), color var(--transition-fast);
+}
+.modalClose:hover { background: rgba(107,30,58,0.1); color: var(--color-wine); }
+
+.modalIcon {
+  font-size:     2.8rem;
+  margin-bottom: 0.8rem;
+  line-height:   1;
+}
+
+.modalHeader {
+  display:     flex;
+  align-items: center;
+  gap:         0.75rem;
+  flex-wrap:   wrap;
+  margin-bottom: 1rem;
+}
+
+.modalTitle {
+  font-family:  var(--font-serif);
+  font-size:    clamp(1.4rem, 3vw, 1.8rem);
+  font-weight:  700;
+  color:        var(--color-dark);
+}
+
+.modalDesc {
+  font-size:     0.95rem;
+  line-height:   1.75;
+  color:         var(--color-gray);
+  margin-bottom: 1.4rem;
+}
+
+.modalBenefits {
+  background:    var(--color-offwhite);
+  border-radius: var(--radius-md);
+  padding:       1.2rem;
+  margin-bottom: 1.6rem;
+}
+
+.modalBenefitsTitle {
+  font-family:    var(--font-sans);
+  font-size:      0.7rem;
+  font-weight:    800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--color-gold);
+  margin-bottom:  0.8rem;
+}
+
+.modalBenefitsList {
+  list-style: none;
+  display:    flex;
+  flex-direction: column;
+  gap:        0.55rem;
+}
+
+.modalBenefitsList li {
+  display:     flex;
+  align-items: center;
+  gap:         0.55rem;
+  font-family: var(--font-body);
+  font-size:   0.88rem;
+  color:       var(--color-dark);
+}
+
+.checkIcon {
+  color:      var(--color-wine);
+  font-size:  0.7rem;
+  flex-shrink: 0;
+}
+
+.modalCta {
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             0.5rem;
+  font-family:     var(--font-sans);
+  font-size:       0.8rem;
+  font-weight:     700;
+  letter-spacing:  0.1em;
+  text-transform:  uppercase;
+  color:           white;
+  background:      linear-gradient(135deg, #25D366, #128C7E);
+  padding:         0.9rem 1.6rem;
+  border-radius:   var(--radius-sm);
+  transition:      box-shadow var(--transition-fast);
+  width:           100%;
+}
+.modalCta:hover { box-shadow: 0 8px 24px rgba(37,211,102,0.4); }
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 0 var(--space-md); }
+}
+
+@media (max-width: 640px) {
+  .grid { grid-template-columns: 1fr; }
+  .container { padding: 0 1.2rem; }
+  .section { padding: var(--space-lg) 0; }
+  .modal { padding: 1.8rem 1.4rem; border-radius: var(--radius-md) var(--radius-md) 0 0; }
+}

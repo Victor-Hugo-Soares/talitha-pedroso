@@ -1,0 +1,30 @@
+.wrap {
+  display:     flex;
+  align-items: center;
+  gap:         var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.centered { justify-content: center; }
+
+.line {
+  flex:    1;
+  max-width: 60px;
+  height:  1px;
+  background: var(--color-gold-metal);
+  opacity: 0.6;
+}
+
+.label {
+  font-family:    var(--font-sans);
+  font-size:      0.65rem;
+  font-weight:    800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color:          var(--color-gold);
+  white-space:    nowrap;
+}
+
+/* Light variant — para seções escuras */
+.light.label { color: var(--color-gold-pale); }
+.light.line  { background: rgba(240, 223, 184, 0.4); }

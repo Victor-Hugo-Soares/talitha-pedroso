@@ -1,0 +1,102 @@
+.button {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             0.55rem;
+  font-family:     var(--font-sans);
+  font-weight:     700;
+  letter-spacing:  0.1em;
+  text-transform:  uppercase;
+  border-radius:   var(--radius-sm);
+  cursor:          pointer;
+  transition:      background var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  white-space:     nowrap;
+  text-decoration: none;
+  position:        relative;
+  overflow:        hidden;
+  border:          1.5px solid transparent;
+  -webkit-user-select: none;
+  user-select:     none;
+}
+
+/* ── Shimmer overlay ─────────────────────── */
+.button::before {
+  content:    '';
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.14) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.5s ease;
+}
+.button:hover::before { transform: translateX(100%); }
+
+/* ── Sizes ───────────────────────────────── */
+.sm { padding: 0.55rem 1.3rem;  font-size: 0.72rem; }
+.md { padding: 0.85rem 2rem;    font-size: 0.82rem; }
+.lg { padding: 1.05rem 2.6rem;  font-size: 0.88rem; }
+
+/* ── Variants ────────────────────────────── */
+.primary {
+  background: var(--color-wine);
+  color:      var(--color-white);
+  border-color: var(--color-wine);
+  box-shadow: var(--shadow-wine-sm);
+}
+.primary:hover {
+  background:   var(--color-wine-dark);
+  border-color: var(--color-wine-dark);
+  box-shadow:   var(--shadow-wine);
+}
+
+.secondary {
+  background:   transparent;
+  color:        var(--color-gold);
+  border-color: var(--color-gold);
+}
+.secondary:hover {
+  background:   var(--color-gold);
+  color:        var(--color-wine-dark);
+  border-color: var(--color-gold);
+}
+
+.ghost {
+  background:   transparent;
+  color:        var(--color-white);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.ghost:hover {
+  background:   rgba(255, 255, 255, 0.1);
+  border-color: var(--color-white);
+}
+
+.whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color:      white;
+  border-color: transparent;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+}
+.whatsapp:hover {
+  box-shadow: 0 8px 32px rgba(37, 211, 102, 0.50);
+}
+
+/* ── States ──────────────────────────────── */
+.fullWidth { width: 100%; }
+
+.disabled {
+  opacity: 0.45;
+  cursor:  not-allowed;
+  pointer-events: none;
+}
+
+/* ── Icon ────────────────────────────────── */
+.waIcon, .iconWrap {
+  display:     flex;
+  align-items: center;
+  font-size:   1.15em;
+  flex-shrink: 0;
+}

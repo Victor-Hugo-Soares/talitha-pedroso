@@ -1,0 +1,287 @@
+.section {
+  padding:    var(--space-xl) 0;
+  background: var(--color-offwhite);
+  position:   relative;
+}
+
+.container {
+  max-width: 1280px;
+  margin:    0 auto;
+  padding:   0 var(--space-lg);
+}
+
+/* ── Header ──────────────────────────────── */
+.header {
+  text-align:    center;
+  max-width:     640px;
+  margin:        0 auto var(--space-lg);
+}
+
+.title {
+  font-family:   var(--font-serif);
+  font-size:     clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight:   700;
+  color:         var(--color-dark);
+  line-height:   1.2;
+  margin-bottom: var(--space-md);
+}
+
+.titleAccent {
+  color:      var(--color-wine);
+  font-style: italic;
+}
+
+.desc {
+  font-size:   clamp(0.9rem, 1.3vw, 1rem);
+  line-height: 1.75;
+  color:       var(--color-gray);
+  margin-top:  var(--space-md);
+}
+
+/* ── Features ────────────────────────────── */
+.features {
+  display:               grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:                   var(--space-md);
+  margin-bottom:         var(--space-lg);
+}
+
+.feature {
+  display:     flex;
+  gap:         0.85rem;
+  align-items: flex-start;
+  background:  var(--color-white);
+  border:      1px solid rgba(201, 146, 58, 0.1);
+  border-radius: var(--radius-md);
+  padding:     1.3rem;
+  transition:  border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.feature:hover {
+  border-color: rgba(201, 146, 58, 0.3);
+  box-shadow:   var(--shadow-gold-sm);
+}
+
+.featureIcon {
+  font-size:   1.5rem;
+  flex-shrink: 0;
+  margin-top:  2px;
+}
+
+.featureTitle {
+  font-family:   var(--font-sans);
+  font-size:     0.85rem;
+  font-weight:   700;
+  color:         var(--color-dark);
+  margin-bottom: 0.3rem;
+}
+
+.featureDesc {
+  font-size:   0.8rem;
+  line-height: 1.55;
+  color:       var(--color-gray);
+}
+
+/* ── Galeria ─────────────────────────────── */
+.gallery {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows:    auto auto;
+  gap:                   var(--space-sm);
+  border-radius:         var(--radius-lg);
+  overflow:              hidden;
+}
+
+/* Primeira imagem ocupa 2 linhas */
+.gallery > *:first-child {
+  grid-row: span 2;
+}
+
+.galleryItem {
+  position:       relative;
+  overflow:       hidden;
+  aspect-ratio:   4/3;
+  background:     var(--color-marble);
+  cursor:         pointer;
+  border:         none;
+  padding:        0;
+}
+
+.galleryItem:first-child {
+  aspect-ratio: auto;
+}
+
+.skeleton {
+  position:   absolute;
+  inset:      0;
+  background: linear-gradient(
+    90deg,
+    var(--color-marble) 25%,
+    rgba(201, 146, 58, 0.1) 50%,
+    var(--color-marble) 75%
+  );
+  background-size: 200% 100%;
+  animation:  shimmer 1.5s linear infinite;
+}
+
+.galleryImg {
+  width:         100%;
+  height:        100%;
+  object-fit:    cover;
+  display:       block;
+  will-change:   transform;
+  transition:    transform var(--transition-slow);
+}
+
+.galleryOverlay {
+  position:        absolute;
+  inset:           0;
+  background:      rgba(107, 30, 58, 0);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  transition:      background var(--transition-base);
+}
+
+.galleryItem:hover .galleryOverlay {
+  background: rgba(107, 30, 58, 0.45);
+}
+
+.galleryZoom {
+  font-size:   1.5rem;
+  opacity:     0;
+  transform:   scale(0.6);
+  transition:  opacity var(--transition-base), transform var(--transition-base);
+}
+
+.galleryItem:hover .galleryZoom {
+  opacity:   1;
+  transform: scale(1);
+}
+
+/* ── Lightbox ────────────────────────────── */
+.lightboxBackdrop {
+  position:        fixed;
+  inset:           0;
+  background:      rgba(0, 0, 0, 0.92);
+  z-index:         var(--z-modal);
+  display:         flex;
+  align-items:     center;
+  justify-content: center;
+  padding:         var(--space-lg);
+  cursor:          pointer;
+}
+
+.lightboxImg {
+  max-width:     90vw;
+  max-height:    85vh;
+  position:      relative;
+  cursor:        default;
+  border-radius: var(--radius-md);
+  overflow:      hidden;
+  box-shadow:    0 30px 80px rgba(0,0,0,0.6);
+}
+
+.lightboxImg img {
+  max-width:   90vw;
+  max-height:  80vh;
+  object-fit:  contain;
+  display:     block;
+}
+
+.lightboxCaption {
+  position:   absolute;
+  bottom:     0;
+  left:       0;
+  right:      0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  color:      rgba(255,255,255,0.85);
+  font-size:  0.8rem;
+  padding:    1.5rem 1rem 0.8rem;
+  font-family: var(--font-body);
+}
+
+.lightboxBtn {
+  position:    absolute;
+  background:  rgba(255,255,255,0.1);
+  border:      1px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  color:       white;
+  cursor:      pointer;
+  display:     flex;
+  align-items: center;
+  justify-content: center;
+  transition:  background var(--transition-fast);
+  backdrop-filter: blur(8px);
+}
+.lightboxBtn:hover { background: rgba(201, 146, 58, 0.3); }
+
+.lightboxClose {
+  top:    1rem;
+  right:  1rem;
+  width:  44px;
+  height: 44px;
+  font-size: 0.9rem;
+}
+
+.lightboxPrev {
+  left:      1.5rem;
+  top:       50%;
+  transform: translateY(-50%);
+  width:     50px;
+  height:    50px;
+  font-size: 1rem;
+}
+
+.lightboxNext {
+  right:     1.5rem;
+  top:       50%;
+  transform: translateY(-50%);
+  width:     50px;
+  height:    50px;
+  font-size: 1rem;
+}
+
+.lightboxDots {
+  position:        absolute;
+  bottom:          1.5rem;
+  left:            50%;
+  transform:       translateX(-50%);
+  display:         flex;
+  gap:             0.5rem;
+}
+
+.lightboxDot {
+  width:         8px;
+  height:        8px;
+  border-radius: 50%;
+  background:    rgba(255,255,255,0.35);
+  border:        none;
+  cursor:        pointer;
+  transition:    background var(--transition-fast), transform var(--transition-fast);
+}
+
+.lightboxDotActive {
+  background: var(--color-gold);
+  transform:  scale(1.3);
+}
+
+/* ── Responsive ──────────────────────────── */
+@media (max-width: 1024px) {
+  .features  { grid-template-columns: repeat(2, 1fr); }
+  .container { padding: 0 var(--space-md); }
+}
+
+@media (max-width: 768px) {
+  .gallery   { grid-template-columns: repeat(2, 1fr); }
+  .gallery > *:first-child { grid-row: auto; }
+  .lightboxPrev { left:  0.5rem; width: 40px; height: 40px; }
+  .lightboxNext { right: 0.5rem; width: 40px; height: 40px; }
+}
+
+@media (max-width: 640px) {
+  .section   { padding: var(--space-lg) 0; }
+  .features  { grid-template-columns: 1fr; }
+  .gallery   { grid-template-columns: 1fr; }
+  .container { padding: 0 1.2rem; }
+}

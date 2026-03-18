@@ -1,0 +1,77 @@
+.splash {
+  position:   fixed;
+  inset:      0;
+  z-index:    calc(var(--z-cursor) - 1);
+  display:    flex;
+  align-items:     center;
+  justify-content: center;
+  background: radial-gradient(
+    ellipse at center,
+    var(--color-wine) 0%,
+    var(--color-wine-dark) 60%,
+    #2A0818 100%
+  );
+  overflow: hidden;
+}
+
+/* Partículas decorativas */
+.particles { position: absolute; inset: 0; }
+
+.particle {
+  position:     absolute;
+  width:        calc(2px + var(--i) * 0.5px);
+  height:       calc(2px + var(--i) * 0.5px);
+  border-radius: 50%;
+  background:   var(--color-gold);
+  top:          calc(var(--i) * 6% + 2%);
+  left:         calc(var(--i) * 5.3% + 5%);
+  opacity:      calc(0.08 + var(--i) * 0.03);
+  animation:    floatSlow calc(3s + var(--i) * 0.3s) ease-in-out infinite;
+  animation-delay: calc(var(--i) * -0.4s);
+}
+
+/* Conteúdo central */
+.content {
+  display:        flex;
+  flex-direction: column;
+  align-items:    center;
+  gap:            0.8rem;
+  position:       relative;
+  z-index:        2;
+}
+
+.monogram {
+  font-family:    var(--font-serif);
+  font-size:      clamp(4rem, 10vw, 7rem);
+  font-weight:    700;
+  color:          transparent;
+  background:     linear-gradient(
+    135deg,
+    var(--color-gold-pale) 0%,
+    var(--color-gold) 40%,
+    var(--color-gold-light) 60%,
+    var(--color-gold-metal) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip:         text;
+  letter-spacing:  -0.03em;
+  line-height:     1;
+  filter:          drop-shadow(0 4px 20px rgba(201, 146, 58, 0.4));
+}
+
+.tagline {
+  font-family:    var(--font-corm);
+  font-style:     italic;
+  font-size:      clamp(0.9rem, 2vw, 1.1rem);
+  color:          rgba(240, 223, 184, 0.75);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-weight:    300;
+}
+
+.line {
+  width:          80px;
+  height:         1px;
+  background:     linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  transform-origin: left;
+}

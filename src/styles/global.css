@@ -1,0 +1,125 @@
+@import './tokens.css';
+@import './typography.css';
+@import './animations.css';
+
+/* ══════════════════════════════════════════
+   RESET & BASE
+   ══════════════════════════════════════════ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-offwhite);
+  color: var(--color-dark);
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* Custom cursor desativado em mobile */
+@media (max-width: 768px) {
+  body { cursor: auto; }
+}
+
+/* ══════════════════════════════════════════
+   SCROLLBAR
+   ══════════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-wine-dark); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold-metal));
+  border-radius: 99px;
+}
+
+/* ══════════════════════════════════════════
+   SELEÇÃO
+   ══════════════════════════════════════════ */
+::selection {
+  background: var(--color-gold-pale);
+  color: var(--color-wine-dark);
+}
+
+/* ══════════════════════════════════════════
+   FOCUS
+   ══════════════════════════════════════════ */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ══════════════════════════════════════════
+   ELEMENTOS BASE
+   ══════════════════════════════════════════ */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul, ol { list-style: none; }
+
+/* ══════════════════════════════════════════
+   CONTAINER
+   ══════════════════════════════════════════ */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+@media (max-width: 1024px) {
+  .container { padding: 0 var(--space-md); }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1.2rem; }
+}
+
+/* ══════════════════════════════════════════
+   SEÇÃO PADRÃO
+   ══════════════════════════════════════════ */
+.section {
+  padding: var(--space-xl) 0;
+}
+
+@media (max-width: 768px) {
+  .section { padding: var(--space-lg) 0; }
+}
+
+/* ══════════════════════════════════════════
+   FUNDO ESCURO VINHO
+   ══════════════════════════════════════════ */
+.bg-wine {
+  background: linear-gradient(135deg, var(--color-wine-dark) 0%, var(--color-wine) 60%, #7A2244 100%);
+  color: var(--color-white);
+}
+
+.bg-offwhite { background-color: var(--color-offwhite); }
+.bg-white { background-color: var(--color-white); }
+.bg-dark { background-color: var(--color-dark); }
